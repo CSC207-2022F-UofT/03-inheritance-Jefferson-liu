@@ -81,11 +81,12 @@ public abstract class Bag {
      *       and false otherwise.
      */
     boolean addItem(String item) {
-        if(numberOfContents < capacity){
-            numberOfContents += 1;
+        if (numberOfContents < capacity) {
+            numberOfContents++;
             String[] updatedContents = new String[contents.length + 1];
-
-            updatedContents = contents.clone();
+            for (int a = 0; a < contents.length; a++) {
+                updatedContents[a] = contents[a];
+            }
             updatedContents[contents.length] = item;
             contents = updatedContents;
             return true;
