@@ -88,7 +88,7 @@ public abstract class Bag {
                 updatedContents[a] = contents[a];
             }
             updatedContents[contents.length] = item;
-            contents = updatedContents;
+            this.contents = updatedContents;
             return true;
         }
         return false;
@@ -108,17 +108,11 @@ public abstract class Bag {
      * @return
      */
     String popItem(){
-        if (numberOfContents > 0) {
-            String pop = contents[contents.length - 1];
-            String[] updatedContents = new String[contents.length - 1];
-            for (int x = 0; x < contents.length - 1; x++) {
-                updatedContents[x] = contents[x];
-            }
-            contents = updatedContents;
-            numberOfContents--;
-            return pop;
+        if(numberOfContents == 0){
+            return null;
         }
-        return null;
+        numberOfContents --;
+        return contents[numberOfContents];
     }
 
 
